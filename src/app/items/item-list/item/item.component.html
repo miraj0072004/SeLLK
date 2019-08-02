@@ -1,0 +1,23 @@
+<div>
+<a
+  style="cursor: pointer;"
+  [routerLink]="[index]"
+  routerLinkActive="active"
+  class="list-group-item clearfix"
+>
+<div class="row">
+  <div class="col-sm-5">
+    <img [src]="imagePath"
+     class="img-responsive"
+     alt="{{item.Title}}"
+     style="max-height: 100px;"/>
+  </div>
+  <div class="col-sm-7">
+    <h4 class="list-group-item-heading">{{item.Title}}</h4>
+    <p>{{item.Category}} - {{item.Location}}</p>
+    <p>{{item.Price}} Rs </p>
+    <p>{{item.User.Username}} </p>
+  </div>
+</div>
+</a>
+</div>
