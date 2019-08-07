@@ -1,8 +1,10 @@
 import { Item } from './item.model';
 import { User } from '../users/user.model';
+import { Subject } from 'rxjs';
 
 export class ItemService {
 
+ itemsChanged =new  Subject<Item[]>();   
  items:Item[]=
  [
     new Item
@@ -66,5 +68,11 @@ export class ItemService {
  GetItemById(id: number)
  {
      return this.items[id];
+ }
+
+ AddItem(item:Item)
+ {
+    this.items.push(item);
+    this.itemsChanged.next(this.items.slice());
  }
 }

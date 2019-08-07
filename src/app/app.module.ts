@@ -13,6 +13,7 @@ import { ItemDetailComponent } from './items/item-detail/item-detail.component';
 import { ItemEditComponent } from './items/item-edit/item-edit.component';
 import { ItemsComponent } from './items/items.component';
 import { ItemService } from './items/item.service';
+import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,9 @@ import { ItemService } from './items/item.service';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [ItemService],
   bootstrap: [AppComponent]

@@ -1,3 +1,116 @@
-<p>
-  item-edit works!
-</p>
+<div class="row">
+  <div class="col-sm-12">
+
+    <form [formGroup]="postAdForm" (ngSubmit)="onPostAd()">
+      <div class="row">
+        <div class="col-sm-8 offset-2">
+          <div class="form-group">
+            <label for="category"></label>
+            <input type="text"
+                   id="category"
+                   name="category"
+                   formControlName="category"
+                   class="form-control"
+                   placeholder="Category"  
+            >
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-8 offset-2">
+            <div class="form-group">
+              <label for="location"></label>
+              <input type="text"
+                    id="location"
+                    name="location"
+                    formControlName="location"
+                    class="form-control"
+                    placeholder="Location"  
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-8 offset-2">
+              <div class="form-group">
+                <label for="title"></label>
+                <input type="text"
+                      id="title"
+                      name="title"
+                      formControlName="title"
+                      class="form-control"
+                      placeholder="Title"  
+                >
+              </div>
+            </div>
+        </div>
+
+        
+
+        <div class="row">
+            <div class="col-sm-8 offset-2" formArrayName="images">
+              <div 
+                class="row"
+                *ngFor="let imageCtrl of postAdForm.get('images').controls;let i=index"
+                [formGroupName]="i"
+                style="margin-top: 10px;"
+              >
+                
+                <div class="col-sm-8">
+                  <textarea class="form-control" rows="4" formControlName="path" #path></textarea>
+                </div>
+                <div class="col-sm-4">
+                  <img [src]="path.value" class="img-thumbnail" style="max-height: 110px">
+                </div>              
+              
+              </div>
+              <br>
+              <button type="button" class="btn btn-success" (click)="onAddImage()">
+                Add Image
+              </button>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-sm-8 offset-2">
+            <div class="form-group">
+              <label for="description"></label>
+              <textarea type="text"
+                    id="description"
+                    name="description"
+                    formControlName="description"
+                    class="form-control"
+                    placeholder="Description"  
+              ></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3 offset-2">
+            <div class="form-group">
+              <label for="price"></label>
+              <input type="text"
+                     id="price"
+                     name="price"
+                     formControlName="price"
+                     class="form-control"
+                     placeholder="Price"  
+              >
+            </div>
+          </div>
+        </div>
+
+        <div id="userInfo">
+
+        </div>
+        <div class="row">
+          <div class="col-sm-8 offset-2">
+            <button type="submit" class="btn btn-success">Post</button>
+          </div>
+        </div>
+        
+      </form>
+    </div> 
+
+  </div>
